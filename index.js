@@ -346,7 +346,7 @@ bot.command('reload',async(ctx)=>{
     var memberstatus = await bot.telegram.getChatMember(ctx.chat.id, ctx.from.id)
     console.log(memberstatus);
     if(ctx.chat.type == 'group' || ctx.chat.type == 'supergroup') {
-        if (!memberstatus || memberstatus.status == 'creator' || memberstatus.status == 'administrator' || memberstatus.status == 'left'){
+        if (!memberstatus || memberstatus.status == 'creator' || memberstatus.status == 'administrator'){
             ctx.reply('BOT dimulai ulang')
             saver.saveGroup(group)
         }
@@ -358,7 +358,7 @@ bot.command('kick',async(ctx)=>{
     var memberstatus = await bot.telegram.getChatMember(ctx.chat.id, ctx.from.id)
     console.log(memberstatus);
     if(ctx.chat.type == 'group' || ctx.chat.type == 'supergroup') {
-        if (!memberstatus || memberstatus.status == 'creator' || memberstatus.status == 'administrator' || memberstatus.status == 'left'){                     
+        if (!memberstatus || memberstatus.status == 'creator' || memberstatus.status == 'administrator'){                     
             if (ctx.message.reply_to_message == undefined){
                 let args = ctx.message.text.split(" ").slice(1)
                 await bot.telegram.kickChatMember(ctx.chat.id, args[0]).then(result=>{
@@ -378,7 +378,7 @@ bot.command('ban',async(ctx)=>{
     console.log(memberstatus);
 
     if(ctx.chat.type == 'group' || ctx.chat.type == 'supergroup') {
-        if (!memberstatus || memberstatus.status == 'creator' || memberstatus.status == 'administrator' || memberstatus.status == 'left'){
+        if (!memberstatus || memberstatus.status == 'creator' || memberstatus.status == 'administrator'){
             if (ctx.message.reply_to_message == undefined){
 
                 const str = ctx.message.text;
@@ -425,7 +425,7 @@ bot.command('unban',async(ctx)=>{
     var memberstatus = await bot.telegram.getChatMember(ctx.chat.id, ctx.from.id)
     console.log(memberstatus);
     if(ctx.chat.type == 'group' || ctx.chat.type == 'supergroup') {
-        if (!memberstatus || memberstatus.status == 'creator' || memberstatus.status == 'administrator' || memberstatus.status == 'left'){
+        if (!memberstatus || memberstatus.status == 'creator' || memberstatus.status == 'administrator'){
             if (ctx.message.reply_to_message == undefined){
                 let args = ctx.message.text.split(" ").slice(1)
                 await bot.telegram.unbanChatMember(ctx.chat.id, args[0]).then(result=>{
@@ -454,7 +454,7 @@ bot.command('pin',async(ctx)=>{
     var memberstatus = await bot.telegram.getChatMember(ctx.chat.id, ctx.from.id)
     console.log(memberstatus);
     if(ctx.chat.type == 'group' || ctx.chat.type == 'supergroup') {
-        if (!memberstatus || memberstatus.status == 'creator' || memberstatus.status == 'administrator' || memberstatus.status == 'left'){
+        if (!memberstatus || memberstatus.status == 'creator' || memberstatus.status == 'administrator'){
             await bot.telegram.pinChatMessage(ctx.chat.id, ctx.message.reply_to_message.message_id,{
                 disable_notification: false,
             }).then(result=>{
@@ -469,7 +469,7 @@ bot.command('unpin',async(ctx)=>{
     var memberstatus = await bot.telegram.getChatMember(ctx.chat.id, ctx.from.id)
     console.log(memberstatus);
     if(ctx.chat.type == 'group' || ctx.chat.type == 'supergroup') {
-        if (!memberstatus || memberstatus.status == 'creator' || memberstatus.status == 'administrator' || memberstatus.status == 'left'){
+        if (!memberstatus || memberstatus.status == 'creator' || memberstatus.status == 'administrator'){
             await bot.telegram.unpinChatMessage(ctx.chat.id, ctx.message.reply_to_message.message_id).then(result=>{
                 console.log(result)
             })
@@ -483,7 +483,7 @@ bot.command('send',async(ctx)=>{
     console.log(memberstatus);
 
     if(ctx.chat.type == 'group' || ctx.chat.type == 'supergroup') {
-        if (!memberstatus || memberstatus.status == 'creator' || memberstatus.status == 'administrator' || memberstatus.status == 'left'){
+        if (!memberstatus || memberstatus.status == 'creator' || memberstatus.status == 'administrator'){
             if (ctx.message.reply_to_message == undefined){
 
                 const str = ctx.message.text;
@@ -576,10 +576,30 @@ bot.command('remall', (ctx) => {
 })
 
 bot.command('sendchat',async(ctx)=>{
-    stats = await saver.getUser().then((res)=>{
-        var botStatus = await bot.telegram.getChatMember(res.userId, ctx.botInfo.id)
-        var memberstatus = await bot.telegram.getChatMember(res.userId, ctx.from.id)
-        console.log(memberstatus);
+    groupDetails = await saver.getGroup().then((res)=>{
+        n = res.length
+        groupId = []
+        for (i = n-1; i >=0; i--) {
+            groupId.push(res[i].groupId)
+        }
+        async function sendchat() {
+            for (const group of groupId) {
+                var memberstatus = await bot.telegram.getChatMember(group, ctx.from.id)
+                console.log(memberstatus);
+
+                if (!memberstatus || memberstatus.status == 'creator' || memberstatus.status == 'administrator'){
+                const str = ctx.message.text;
+                const words = str.split(/ +/g);
+                const command = words.shift().slice(1);
+                const userId = words.shift();
+                const caption = words.join(" ");
+                ctx.reply('Terkirim!',{
+                    reply_to_message_id: ctx.message.message_id
+                })
+                return bot.telegram.sendMessage(userId, `${caption}`)
+                }
+            }
+        }
 
         if(ctx.chat.type == 'private') {
             if(ctx.from.id ==process.env.ADMIN || ctx.from.id == process.env.ADMIN1 || ctx.from.id == process.env.ADMIN2){
@@ -588,7 +608,6 @@ bot.command('sendchat',async(ctx)=>{
                 const command = words.shift().slice(1);
                 const userId = words.shift();
                 const caption = words.join(" ");
-
                 ctx.reply('Terkirim!',{
                     reply_to_message_id: ctx.message.message_id
                 })
@@ -596,19 +615,7 @@ bot.command('sendchat',async(ctx)=>{
                 return bot.telegram.sendMessage(userId, `${caption}`)
             }
 
-            if (!memberstatus || memberstatus.status == 'creator' || memberstatus.status == 'administrator' || memberstatus.status == 'left'){
-                const str = ctx.message.text;
-                const words = str.split(/ +/g);
-                const command = words.shift().slice(1);
-                const userId = words.shift();
-                const caption = words.join(" ");
-
-                ctx.reply('Terkirim!',{
-                    reply_to_message_id: ctx.message.message_id
-                })
-
-                return bot.telegram.sendMessage(userId, `${caption}`)
-            }
+            sendchat()
         }
     })
 })
