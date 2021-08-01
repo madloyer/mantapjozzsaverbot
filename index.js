@@ -79,7 +79,7 @@ function documentation(ctx){
 // inline keyboard
 const inKey = [
   [{text:'🔎 Pencarian',switch_inline_query:''},{text:'📎 Tautan',callback_data:'POP'}],
-  [{text:'📚 Documentation',callback_data:'DOC'},{text:'🆘 Bantuan',callback_data:'HELP'}],
+  [{text:'📚 Documentation',callback_data:'DOC'},{text:'🆘 Beli Nomor US',callback_data:'HELP'}],
   [{text:'📎 Gabung', url: `${process.env.LINKCHANNEL}`}]
 ];
 
@@ -267,7 +267,7 @@ bot.action('HELP',(ctx)=>{
         disable_web_page_preview: true,
         reply_markup:{
             inline_keyboard: [
-                [{text:'💿 Install',callback_data:'INS'},{text:'🪒 Perintah',callback_data:'COMM'}],
+                [{text:'💿 Join Group Vip',callback_data:'INS'},{text:'🪒 Beli Nomor Us',callback_data:'COMM'}],
                 [{text:'Kembali',callback_data:'STARTUP'}]
             ]
         }
