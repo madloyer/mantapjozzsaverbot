@@ -73,18 +73,18 @@ function messagelink(ctx){
     return `Kirim BOT video, photo dan dokumen.`;
 }
 function documentation(ctx){
-    return `BOT di buat menggunakan \n<b>Program:</b> Node JS \n<b>API:</b> <a href='https://telegraf.js.org/'>Telegraf</a>`;
+    return `List Channel Mantapjozz\nChannel : <a href="t.me/mantapvids">Mantapvids</a>\nChannel : <a href="https://t.me/mantapfilestorage">Mantap Streaming Bot</a>\nGroup Chat : <a href="https://t.me/joinchat/Ssws183am-adKXlP">Free Tele Chat</a>\nWebsite : <a href="https://doujindes.blogspot.com">Doujindesu</a>`;
 }
 
 // inline keyboard
 const inKey = [
   [{text:'🔎 Pencarian',switch_inline_query:''},{text:'📎 Upload Video',callback_data:'POP'}],
-  [{text:'📚 Documentation',callback_data:'DOC'},{text:'🆘 Join Vip',callback_data:'HELP'}],
-  [{text:'📎 Gabung', url: `${process.env.LINKCHANNEL}`}]
+  [{text:'Join Channel',callback_data:'DOC'},{text:' Join Vip',callback_data:'HELP'}],
+  [{text:'Gabung Group', url: `${process.env.LINKCHANNEL}`}]
 ];
 
 const inKey2 = [
-  [{text:'📎 Gabung', url: `${process.env.LINKCHANNEL}`}]
+  [{text:' Gabung Group', url: `${process.env.LINKCHANNEL}`}]
 ];
 
 //BOT START
