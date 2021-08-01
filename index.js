@@ -81,7 +81,6 @@ const inKey = [
   [{text:'🔎 Pencarian',switch_inline_query:''},{text:'📎 Upload Video',callback_data:'POP'}],
   [{text:'Join Channel',callback_data:'DOC'},{text:' Join Vip',callback_data:'HELP'}],
   [{text:'Gabung Group', url: `${process.env.LINKCHANNEL}`}]
-  [{text"'🔄 Refresh', callback_data=f'refresh+{chat_id}+{msg_id}')]
 ];
 
 const inKey2 = [
