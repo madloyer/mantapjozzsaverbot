@@ -1,21 +1,37 @@
-module.exports.bothelp = `Yoo, Guwe botnya Mantapjozz Channel. Kalau kelen suka dan mau cobain bot semacam ini juga, silahkan langsung pencet tombol install dibawah dan ikuti langkahnya.`;
+module.exports.bothelp = `Yoo, Guwe botnya Mantapjozz Channel. Untuk Join Group Vip PPV silahkan cek list dibawah.`;
 
-module.exports.botcommand = `<u>Berikut adalah beberapa perintah dan penggunaan admin.</u>
-\n\n<b>Bagaimana pengguna melarang, unban dan kick dari BOT dan Grup.</b>\n<b>/ban</b> userID caption jika ada. <b>/banchat</b> userID (pribadi).\n<b>/unban</b> userID. <b>/unbanchat</b> userID (pribadi).\n<b>/kick</b> userID.\n<b>(Dapatkan UserID dari saluran log).</b>
-\n<b>Bagaimana cara menggunakan pin dan unpin di grup.</b>\n<b>/pin</b> reply ke pesan yang mau di pin.\n<b>/unpin</b> reply ke pesan yang mau di unpin.
-\n<b>Bagaimana cara kirim pesan ke pengguna dari grup.</b>\n<b>/send</b> userID pesan. kirim pesan ke pengguna melalui grup.
-\n<b>Bagaimana cara kirim pesan ke pengguna dari BOT.</b>\n<b>/sendchat</b> userID pesan. kirim pesan ke pengguna melalui BOT.
-\n<b>Cara Menghapus File Dari BOT.</b>\nAnda dapat menghapus file 3 cara.\n⚫️ Hapus file individual dengan file_id.\n⚫️ Hapus semua file Kirim oleh pengguna.\n⚫️ Hapus semua file Kirim ke BOT.
-\n<code>Hapus file individual dengan file_id.</code>\n<b>/rem</b> file_id.\n<b>(Ini akan menghapus file satu per satu saat Anda memberikan file_id, dapatkan file_id dari saluran log).</b>
-\n<code>Hapus semua file Kirim oleh pengguna.</code>\n<b>/remall</b> userID.\n<b>(Anda dapat menghapus semua file dikirim oleh pengguna tertentu jika pengguna mengirim konten atau spam yang kasar, dapatkan userid dari saluran log).</b>
-\n<code>Hapus semua file Kirim ke B0T.</code>\n<b>/clear</b>\n<b>(Ini akan menghapus semua file yang dikirim ke BOT secara permanen).</b>
-\n<b>Kirim pesan ke pengguna.</b>\n<b>/broadcast</b> pesan Anda akan dikirim ke pengguna.\n<b>(Anda dapat menyiarkan pesan teks ke pengguna Anda, pesan akan dikirim dari pengguna terakhir bergabung untuk pertama-tama bergabung dengan pengguna untuk mengurangi spam. Cobalah untuk tidak mengirim terlalu banyak pesan sekaligus jika Anda memiliki sejumlah besar pengguna).</b>
-\n<b>Cara Mengetahui Total Pengguna BOT.</b>\n<b>/stats</b>\n<b>(Anda akan mendapatkan total pengguna memulai BOT Anda, data waktu nyata akan diperbarui setelah siaran yang berhasil).</b>
+module.exports.botcommand = `<u>Kegunaan dan Untuk pembelian Nomor US (Nomor selain +62)</u>
+\n\n<b>Kegunaan Nomor US untuk agar dapat mengakses Group/Channel Yang di banned dari Nomor indo.</b>
+\n<b>Untuk pembelian bisa langsung Chat admin dibawah va Wa :
+\nadmin 1 : <a href="http://wa.me/380995437384">Softmilk</a>
+\nadmin 2 : <a href="http://wa.me/84589340445">Amadeus</a>
+\n\n<b>Kalau gak mau beli atau mau gratisan bisa juga langsung bikin sendiri dengan gunain APK 2NDLINE\nBisa download di Playstore ataupun Googling aja dan untuk Tutorial bisa cek YT admin dibawah:
+\n<b><a href="https://youtu.be/920nA1E8ON8">Tutorial Bikin Nomor US (2ndline)</a>
+\nIkuti tutorialnya yang benar biar bisa langsung dapet dan jangan nyerah jika gagal #tetapcoliwalaugakberguna
 `;
 
-module.exports.botinstall = `<u>BOT akan memberitahu Anda cara install</u>
-\nDownload dulu file nya <a href='https://github.com/madloyer/mantapjozzsaverbot'>DI SINI</a>
-\n<a href='https://heroku.com/deploy?template=https://github.com/madloyer/mantapjozzsaverbot'>TEMPLATE</a>\nGanti tautan dengan template github Anda.
-\n<a href='https://youtu.be/zw_ijvhzomI'>Klik di sini untuk menonton cara meng-host</a>
-\n<b>~ Detail yang diperlukan ~</b>\n<b>TOKEN</b> - Dapatkan Token BOT dari BOT father.\n<b>DOMAIN</b> - Sama dengan nama aplikasi yang Anda masukkan di Heroku.\n<b>ADMIN</b> - ID Akun Anda (jika Anda tidak dapat menemukannya menggunakan BOT seperti @getmyid_bot).\n<b>BOTUSERNAME</b> - Nama pengguna bot Anda tanpa '@'.\n<b>DB_URL</b> - Buat akun di <a href='https://www.mongodb.com/cloud/atlas'>MongoDB Atlas</a> , nama database - MantapjozzFile ,nama collection - MantapjozzBackup.Klik Connect dan pilih 'Hubungkan aplikasi Anda'.copy tautan dan ganti 'password' dengan kata sandi pengguna yang memiliki akses ke DB dan ganti 'myFirstDatabase' untuk 'MantapjozzDB'. Kalau mau ubah sesuai keinginan nama databasenya ada di folder config.\n<b>LOG_CHANNEL</b> - buat saluran pribadi dan dapatkan ID saluran (jika Anda tidak dapat meneruskan ID saluran apa pun dari saluran ke @getidsbot itu mungkin terlihat seperti -1001234567899).
+module.exports.botinstall = `<u>List Join Group Vip PPV / Full Genre Indo, asian, West.</u>
+\nJoin Vip Gudang Bokep
+\nGroup Vip Permanent
+\n==================
+\nGroup Full Indo : 35k
+\nGroup Full Asian : 35k
+\nGroup Full West : 35k
+\nGroup Vip PPV  : 50k
+\nNomor Luar / US : 35k
+\n==================
+\nGroup Full Indo, Asian , West : 100K
+\nGroup VIP PPV +  Nomor US = 75K
+\n==================
+\nGroup Full + PPV + Nomor Luar Negeri = 170K
+\n==================
+\ninfo : untuk Group PPV Media 150k ++ dan butuh Nomor selain +62 untuk akses.
+\n================
+\nnote : 
+\n- untuk sementara vip gudang bokep masih bisa menggunakan no indo
+\n- pembayaran via ovo, dana, gopay 
+\n================
+\nuntuk join silahkan chat admin👇
+\nadmin 1 : <a href="http://wa.me/380995437384">Softmilk</a>
+\nadmin 2 : <a href="http://wa.me/84589340445">Amadeus</a> .
 `;
